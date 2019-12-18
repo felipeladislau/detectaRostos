@@ -20,6 +20,24 @@ function iniciaVideo(){
 
 }
 
+// Ouvindo o evento do Play
 video.addEventListener('play', () => {
-    console.log('Lorem ipsum');
+
+    //Ajuste do canvas da detecção
+    const canvas = faceapi.createCanvasFromMedia(video)
+    document.body.append(canvas)
+    const displaySize = { width: video.width, height: video.height }
+    faceapi.matchDimensions(canvas, displaySize)
+
+
+    //Ouvindo o evento várias vezes.
+    setInterval(async () => {
+        const detections = await faceapi.detectAllFaces(video, 
+            new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
+            
+            const resizedDetections = faceapi.resizeResults(detections, displaySize)
+            canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+            faceapi.draw.drawDetections(canvas, resizedDetections)
+            faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+    }, 100)
 })
