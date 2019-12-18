@@ -9,4 +9,4 @@ Este projeto pode ser base experimental para testar emoções e sentimentos na u
 - Lojas virtuais e experiências de compras.
 - Experiências de usuários durante ciclo de U.I e muitos outros.
 
-Através do arquivo SCRIPTS.JS você pode acessar a pripriedade **detections** e ter acesso a todas as expressões do usuário além da acuracia do rosto detectado.
+Através do arquivo *SCRIPTS.JS* você pode acessar a pripriedade **detections** e ter acesso a todas as expressões do usuário além da acuracia do rosto detectado.
